@@ -11,6 +11,7 @@ const todoSlice = createSlice({
     saveTodo: (state, action) => {
       state.todoList.push(action.payload);
     },
+
     setCheck: (state, action) => {
       state.todoList.map((item) => {
         if (action.payload === item.id) {
@@ -22,10 +23,16 @@ const todoSlice = createSlice({
         }
       });
     },
+
+    setDelete: (state, action) => {
+      state.todoList = state.todoList.filter(
+        (item) => item.id !== action.payload
+      );
+    },
   },
 });
 
-export const { saveTodo, setCheck } = todoSlice.actions;
+export const { saveTodo, setCheck, setDelete } = todoSlice.actions;
 
 export const selectTodoList = (state) => state.todos.todoList;
 

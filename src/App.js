@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import "./App.css";
 import Input from "./components/Input/Input";
@@ -13,7 +12,12 @@ function App() {
       <div className="app__container">
         <div className="app__todoContainer">
           {todoList.map((item, index) => (
-            <TodoItem name={item.item} done={item.done} id={item.id} />
+            <TodoItem
+              name={item.item}
+              done={item.done}
+              id={item.id}
+              key={item.id}
+            />
           ))}
         </div>
         <Input />
